@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/themes/m2glsi.min.css">
+    <link rel="stylesheet" href="lib/themes/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+    <title>Contact List</title>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Liste de contacts</h1>
+        </div>
+        <div role="main" class="ui-content">
+            
+            <ul data-role="listview" data-inset="true" id="list" data-filter="true" data-filter-placeholder="Recherche d'un contact">
+                <li>
+                    <a href="#">
+                        <img src="img/avatar.jpg" alt="Profile picture">
+                        <h4>Moussa SOW</h4>
+                        <p>70 056 23 20</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/woman.jpg" alt="Profile picture">
+                        <h4>Hawa BAA</h4>
+                        <p>77 756 23 20</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/avatar.png" alt="Profile picture">
+                        <h4>Diadie SOUMARE</h4>
+                        <p>76 056 23 20</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <ul data-role="listview" data-inset="true" id="TasksDone">
+        
+        </ul>
+        <div data-role="footer" data-position="fixed">
+            <h1>M2GLSI&copy;COPYRIGHT</h1>
+        </div>
+    </div>
+</body>
+
+</html>
