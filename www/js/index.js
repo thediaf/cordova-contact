@@ -1,37 +1,29 @@
-document.addEventListener('deviceready', getContacts);
-
-
-function getContacts() {
-
-    let options = new ContactFindOptions();
-    options.filter = '';
-    options.multiple = true; 
-    options.hasPhoneNumber = true;
-
-    let fields = ['name'];
-
-    navigator.contacts.find(fields, listerContact, handleError, options);
-
+async function getContacts() {
+    let url = "http://localhost:8080/";
+   try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-function listerContact(contacts) {
+window.onload = async function() {
+    let users = await getContacts();
+    let html = '';
+    users.forEach(user => {
+        let htmlSegment = `<li>
+                             <a href="#">
+                                 <img src="img/${user.picture}" alt="Profile picture">
+                                 <h4>${user.firstname} ${user.lastname}</h4>
+                                 <p>${user.phone} </p>
+                             </a>
+                         </li>`;
 
-    let code = '';
+        html += htmlSegment;
+    });
 
-    for (let i = 0; i < contacts.length; i++) {
-        code += `<li>
-                    <a href="#">
-                        <img src="img/avatar.jpg" alt="Profile picture">
-                        <h4>${ contacts[i].name.formatted}</h4>
-                        <p>${ contacts[i].phoneNumber[0].value } </p>
-                    </a>
-                </li>`;
-    }4
-$(contactlist).listview('refresh');
-}
-
-function handleError(error)
-{
-    alert("Une erreur inattendue s'est produite");
-    console.log(error);
+    let container = document.querySelector('#list');
+    container.innerHTML = html;
+    $('#list').listview('refresh');
 }
